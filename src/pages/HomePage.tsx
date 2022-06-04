@@ -77,7 +77,7 @@ function HomePage() {
                     {part.type}
                   </p>
                 </Card.Text>
-                <Link className='btn button-app' to={`/detail/${part.name}`}>
+                <Link className='btn button-app' to={`/detail/${part.id}`}>
                   See details
                 </Link>
               </Card>

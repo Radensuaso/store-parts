@@ -24,6 +24,14 @@ export function getParts(
   );
 }
 
+export function getPart(id: string): Observable<Part | null> {
+  return ajax.getJSON<Part>(`${url}/parts/${id}`).pipe(
+    map((res) => res),
+    catchError(() => of(null)),
+    take(1)
+  );
+}
+
 export function getTypes(): Observable<string[] | null> {
   return ajax.getJSON<string[]>(`${url}/part-types`).pipe(
     map((res) => res),

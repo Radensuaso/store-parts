@@ -62,6 +62,21 @@ body {
   }
 }
 
+.part-card-detail {
+  background-color: $darkish;
+  box-shadow: 2px 2px 2px $dark;
+  .card-title {
+    font-size: 3rem;
+    color: $primary;
+  }
+  .card-text {
+    font-size: 2rem;
+    b {
+      color: $secondary;
+    }
+  }
+}
+
 .spinner-app {
   width: 6rem;
   height: 6rem;
