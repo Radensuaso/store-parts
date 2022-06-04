@@ -1,0 +1,35 @@
+@import "~bootstrap/scss/bootstrap";
+
+$primary: #ce8231;
+$secondary: #d79b5b;
+$backgroundColor: #37474f;
+$dark: #212121;
+$darkish: #2b2b2b;
+$fontColor: white;
+
+body {
+  background-color: $backgroundColor;
+  color: $fontColor;
+}
+
+.nav-bar-store-parts {
+  background-color: $dark;
+}
+
+.active-link {
+  color: $primary !important;
+  text-shadow: 1px 1px 2px $secondary;
+}
+
+.page-container {
+  margin-top: 100px;
+}
+
+.not-found {
+  display: inline-block;
+  background-color: $darkish;
+  font-size: 4rem;
+  color: $primary;
+  padding: 50px;
+  box-shadow: 2px 2px 2px $dark;
+}
