@@ -1,7 +1,7 @@
-import Container from "react-bootstrap/esm/Container";
+import Container from 'react-bootstrap/esm/Container';
 
 function Detail() {
-  return <Container className="page-container"></Container>;
+  return <Container className='page-container'></Container>;
 }
 
 export default Detail;

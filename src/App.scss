@@ -1,4 +1,4 @@
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 $primary: #ce8231;
 $secondary: #d79b5b;
@@ -30,6 +30,48 @@ body {
   background-color: $darkish;
   font-size: 4rem;
   color: $primary;
-  padding: 50px;
   box-shadow: 2px 2px 2px $dark;
+}
+
+.button-app {
+  border: 1px solid $primary;
+  background-color: $secondary;
+  color: $fontColor;
+}
+
+.search-bar {
+  .query {
+    flex: 2;
+  }
+  .type {
+    flex: 1;
+  }
+  .price {
+    flex: 0;
+  }
+}
+
+.part-card {
+  background-color: $darkish;
+  box-shadow: 2px 2px 2px $dark;
+  .card-title {
+    color: $primary;
+  }
+  b {
+    color: $secondary;
+  }
+}
+
+.spinner-app {
+  width: 6rem;
+  height: 6rem;
+  font-size: 2rem;
+  color: $primary;
+}
+
+.loading-screen {
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
 }
