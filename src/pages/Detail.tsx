@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/esm/Button';
-import Card from 'react-bootstrap/esm/Card';
 import Container from 'react-bootstrap/esm/Container';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import BigSpinner from '../components/BigSpinner';
-import { getPart } from '../models/part/observables';
+import CardDetail from '../components/CardDetail';
+import { getSinglePart } from '../models/part/httpRequests';
 import { Part } from '../models/part/Part';
 
 function Detail() {
@@ -13,20 +12,20 @@ function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const subscribePart = () => {
+  const getPart = async () => {
     setLoading(true);
-    getPart(id ? id : '0').subscribe((res) => {
-      setLoading(false);
-      if (res) {
-        setPart(res);
-      } else {
-        navigate('*');
-      }
-    });
+    const pData = await getSinglePart(id ? id : '0');
+    const p = pData?.data ? pData.data : null;
+    setLoading(false);
+    if (p) {
+      setPart(p);
+    } else {
+      navigate('*');
+    }
   };
 
   useEffect(() => {
-    subscribePart();
+    getPart();
   }, []);
 
   return (
@@ -36,22 +35,7 @@ function Detail() {
           <BigSpinner />
         </div>
       ) : (
-        <Card className='part-card-detail p-3'>
-          <Card.Title>{part?.name}</Card.Title>
-          <Card.Text>
-            <p>
-              <b>Price: </b>
-              {part?.price}
-            </p>
-            <p>
-              <b>Type: </b>
-              {part?.type}
-            </p>
-          </Card.Text>
-          <div className='d-flex justify-content-end'>
-            <Button className='button-app'>See details</Button>
-          </div>
-        </Card>
+        <CardDetail part={part} />
       )}
     </Container>
   );
