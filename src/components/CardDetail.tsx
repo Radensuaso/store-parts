@@ -2,17 +2,13 @@ import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
 import { Part } from '../models/part/Part';
 import { BsFillCartPlusFill } from 'react-icons/bs';
+import { partsFromLocalStore } from '../utils/partsFromLocalStore';
 
 interface CardDetailProps {
   part: Part | null;
 }
 
 function CardDetail(props: CardDetailProps) {
-  const partsFromLocalStore = (): Part[] => {
-    const ps = localStorage.getItem('parts');
-    return JSON.parse(ps ? ps : '[]');
-  };
-
   const addPart = (part: Part | null): void => {
     if (part) {
       const ps = partsFromLocalStore();

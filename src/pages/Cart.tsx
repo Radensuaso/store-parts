@@ -4,14 +4,10 @@ import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/esm/Row';
 import CardList from '../components/CardList';
 import { Part } from '../models/part/Part';
+import { partsFromLocalStore } from '../utils/partsFromLocalStore';
 
 function Cart() {
   const [parts, setParts] = useState<Part[]>([]);
-
-  const partsFromLocalStore = (): Part[] => {
-    const ps = localStorage.getItem('parts');
-    return JSON.parse(ps ? ps : '[]');
-  };
 
   const removePart = (part: Part): void => {
     const ps = partsFromLocalStore();
